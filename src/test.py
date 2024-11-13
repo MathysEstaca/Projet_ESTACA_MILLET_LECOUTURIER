@@ -1,3 +1,5 @@
+"""Module providing a function printing python version."""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
