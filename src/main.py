@@ -1,21 +1,23 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 import random
 
 def change_color():
-    #global image_id
-
-    #if image_id == None:
-    #    if random.random() <= 0.2:
-    #        image_label = ttk.Label(root, image=image)
-    #        image_label.pack()
-    #else:
-    #    image_label.pack_forget()
-    #    image_id = None
+    global image_id
 
     color = "#%06x" %random.randint(0, 0xFFFFFF)
     root.config(bg = color)
     bouton1.place(x=random.randint(120, 520), y=random.randint(40, 440))
+
+    if image_id == None:
+        if random.random() <= 0.2:
+            image_label = ttk.Label(root, image=img)
+            image_label.pack()
+            image_id = 1
+    else:
+        image_label.pack_forget()
+        image_id = None
 
 def center():
     window_width = 640
@@ -34,7 +36,7 @@ def center():
 
 # TODO the bouton!!!!
 
-# image_id = None
+image_id = None
 
 root = tk.Tk()
 root.title("Joli fenêtre")
@@ -52,8 +54,11 @@ message = ttk.Label(
 
 message.pack(padx=20, pady=20)
 
-# Load the image 
-image = tk.PhotoImage(file="shrek.png")
+
+# Read the Image
+image = Image.open("shrek.png")
+resize_image = image.resize((100, 100))
+img = ImageTk.PhotoImage(resize_image)
 
 bouton1 = ttk.Button(
     root,
