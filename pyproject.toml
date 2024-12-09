@@ -1,11 +1,11 @@
 [project]
-name = "bouton"
+name = "button"
 version = "0.1"
 authors = [
     {name = "Mathys Millet", email = "mathys.millet@estaca.eu"},
     {name = "Maxence Lecouturier", email = "maxence.lecouturier@estaca.eu"},
 ]
-description = "Mini-jeu Le Bouton"
+description = "The Button Game"
 readme = "README.MD"
 dependencies = []
 

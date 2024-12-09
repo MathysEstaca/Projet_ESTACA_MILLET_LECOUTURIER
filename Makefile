@@ -2,7 +2,7 @@
 all: install test sphinx coverage
 
 install:
-	@pip install .
+	@pip install -r requirements.txt
 
 test:
 	@pytest test
