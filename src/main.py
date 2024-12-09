@@ -4,30 +4,35 @@ from PIL import Image, ImageTk
 import random
 
 
-def change_color():
+def change_color(image):
+    """"
+    This function change the color of the background, the size of the button and can make a image appear
+    """
+
     global image_id
 
     color = "#%06x" % random.randint(0, 0xFFFFFF)
-    width = "%06x" % random.randint(15, 100)
-    height = "%06x" % random.randint(15, 100)
+    button_width = random.randint(10, 15)
+    button_height = random.randint(0, 5)
 
     root.config(bg=color)
-    bouton1.place(x=random.randint(120, 520), y=random.randint(40, 440))
+    button1.place(x=random.randint(120, 520), y=random.randint(40, 440))
 
-    ttk.Style().configure("TButton", width=width, height=height)
+    button1.configure(width=button_width, height=button_height)
 
-    if image_id == None:
+    if image_id == 0:
         if random.random() <= 0.2:
-            image_label = ttk.Label(root, image=img)
-            image_label.pack()
+            image_label.config(image=image)
             image_id = 1
     else:
-        image_label = ttk.Label(root, image=None)
-        image_label.pack()
-        image_id = None
-
+        image_label.config(image="")
+        image_id = 0
 
 def center():
+    """"
+    This function lock the window width and height and set the window in the middle of the screen
+    """
+
     window_width = 640
     window_height = 480
 
@@ -43,8 +48,6 @@ def center():
     root.geometry(f"{window_width}x{window_height}+{center_x}+{center_y}")
 
 
-image_id = None
-
 root = tk.Tk()
 root.title("Joli fenêtre")
 root.config(bg="#%06x" % random.randint(0, 0xFFFFFF))
@@ -56,20 +59,23 @@ root.attributes("-topmost", 1)  # Always on top of the stack order
 
 # Place a label on the root window
 
-message = ttk.Label(root, text="Appuie sur le bouton et je change de couleur")
+message = ttk.Label(root, text="Appuie sur le button et je change de couleur")
 
 message.pack(padx=20, pady=20)
 
 
 # Read the Image
+image_id = 0
 image = Image.open("shrek.png")
 resize_image = image.resize((100, 100))
 img = ImageTk.PhotoImage(resize_image)
 
-ttk.Style().configure("TButton", width=15, height=15)
-bouton1 = ttk.Button(root, text="Cliquez moi", command=change_color)
+image_label = ttk.Label(root, image="")
+image_label.pack()
 
-bouton1.place(x=320, y=240, anchor="center")
+button1 = tk.Button(root, text="Cliquez moi", command=lambda: change_color(img))
+
+button1.place(x=320, y=240, anchor="center")
 
 # Keep the window displaying
 root.mainloop()
