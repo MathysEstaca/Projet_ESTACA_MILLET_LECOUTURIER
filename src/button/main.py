@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
     # Read the Image
     image_id = 0
-    image = Image.open("/src/button/shrek.png")
+    image = Image.open("src/button/shrek.png")
     resize_image = image.resize((100, 100))
     img = ImageTk.PhotoImage(resize_image)
 
