@@ -11,5 +11,5 @@ sphinx:
 	@make -C doc/ html
 
 coverage:
-	@coverage run --source src/ -m pytest
+	@coverage run --source src/button -m pytest
 	@coverage report

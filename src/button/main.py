@@ -66,7 +66,7 @@ message.pack(padx=20, pady=20)
 
 # Read the Image
 image_id = 0
-image = Image.open("shrek.png")
+image = Image.open("/src/button/shrek.png")
 resize_image = image.resize((100, 100))
 img = ImageTk.PhotoImage(resize_image)
 
