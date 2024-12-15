@@ -1,12 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk
 import random
+from PIL import Image, ImageTk
 
 
 def change_color(image):
     """ "
-    This function change the color of the background, the size of the button and can make a image appear
+    This function change the color of the background,
+    the size of the button and can make a image appear
     """
 
     global image_id
@@ -65,8 +66,9 @@ if __name__ == "__main__":
 
     message.pack(padx=20, pady=20)
 
-
     # Read the Image
+    global image_id
+
     image_id = 0
     image = Image.open("src/button/shrek.png")
     resize_image = image.resize((100, 100))
