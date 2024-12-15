@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "button"
+version = "0.1"
+authors = [
+    {name = "Mathys Millet", email = "mathys.millet@estaca.eu"},
+    {name = "Maxence Lecouturier", email = "maxence.lecouturier@estaca.eu"},
+]
+description = "The Button Game"
+readme = "README.MD"
+dependencies = [
+    "tkinter",
+    "PIL",
+    "random",
+]
+
+[project.scripts]
+button = "button.scripts.button_main:main"
+
+[tool.coverage.run]
+omit = ["*/scripts/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+python_files = ["test.py"]

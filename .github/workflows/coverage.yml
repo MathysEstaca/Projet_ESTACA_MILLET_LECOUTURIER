@@ -1,4 +1,4 @@
-name: Pylint
+name: Coverage
 
 on: [push]
 
@@ -17,6 +17,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Analysing the code with pylint
+      - name: Analysing the code
         run: |
-          pylint src/button/main.py
+          coverage run src/button/main.py
+          coverage report
