@@ -2,3 +2,5 @@ numpy
 matplotlib
 pylint
 pytest
+coverage
+sphinx
