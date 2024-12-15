@@ -10,7 +10,7 @@ def change_color(image):
     the size of the button and can make a image appear
     """
 
-    global image_id
+    global IMAGE_ID
 
     color = "#%06x" % random.randint(0, 0xFFFFFF)
     button_width = random.randint(10, 15)
@@ -21,13 +21,13 @@ def change_color(image):
 
     button1.configure(width=button_width, height=button_height)
 
-    if image_id == 0:
+    if IMAGE_ID == 0:
         if random.random() <= 0.2:
             image_label.config(image=image)
-            image_id = 1
+            IMAGE_ID = 1
     else:
         image_label.config(image="")
-        image_id = 0
+        IMAGE_ID = 0
 
 
 def center():
@@ -67,9 +67,9 @@ if __name__ == "__main__":
     message.pack(padx=20, pady=20)
 
     # Read the Image
-    global image_id
+    global IMAGE_ID
 
-    image_id = 0
+    IMAGE_ID = 0
     image = Image.open("src/button/shrek.png")
     resize_image = image.resize((100, 100))
     img = ImageTk.PhotoImage(resize_image)
